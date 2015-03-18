@@ -1,6 +1,11 @@
 var emailer = require('../Emailer/emailSender');
 var ra = require('./Poster/reserveAmerica');
 
+var emailSendA1 = false;
+var emailSendA2 = false;
+var emailSendFC1 = false;
+var emailSendFC2 = false;
+
 exports.watch = function(config) {
 
   var millisecondsWait = config.Watcher.waitTimeInSeconds * 1000;
@@ -15,29 +20,33 @@ exports.watch = function(config) {
 
     ra.postAnastasia(body1Anastasia, function(answer) {
       var index = answer.indexOf("0 site(s)");
-      if (index !== 0) {
+      if (index !== 0 && !emailSendA1) {
         emailer.sendMail(answer, "Disponibilités à Anastasia! 1er mai", config);
+        emailSendA1 = true;
       }
     });
 
     ra.postAnastasia(body2Anastasia, function(answer) {
       var index = answer.indexOf("0 site(s)");
-      if (index !== 0) {
+      if (index !== 0 && !emailSendA2) {
         emailer.sendMail(answer, "Disponibilités à Anastasia! 2 mai", config);
+        emailSendA2 = true;
       }
     });
 
     ra.postAnastasia(body1FortClinch, function(answer) {
       var index = answer.indexOf("0 site(s)");
-      if (index !== 0) {
+      if (index !== 0 && !emailSendFC1) {
         emailer.sendMail(answer, "Disponibilités à FortClinch! 1er mai", config);
+        emailSendFC1 = true;
       }
     });
 
     ra.postFortClinch(body2FortClinch, function(answer) {
       var index = answer.indexOf("0 site(s)");
-      if (index !== 0) {
+      if (index !== 0 && !emailSendFC2) {
         emailer.sendMail(answer, "Disponibilités à FortClinch! 2 mai", config);
+        emailSendFC2 = true;
       }
     });
 
