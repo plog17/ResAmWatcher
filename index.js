@@ -5,9 +5,7 @@ var watcher = require('./Watcher/reserveAmericaWatcher');
 var config = require('./config/default.json');
 var express = require('express');
 var app = express();
-var config;
 var millisecondsWait = 10 * 1000;
-
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
