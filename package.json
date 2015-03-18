@@ -1,23 +1,25 @@
 {
-  "name": "ResAmWatcher",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "dependencies": {
-    "request": "^2.53.0"
-  },
-  "devDependencies": {},
+  "name": "node-js-getting-started",
+  "version": "0.1.2",
+  "description": "A sample Node.js app using Express 4",
+  "main": "index.js",
   "scripts": {
-    "test": "jasminde-node test/ --verbose"
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x"
+  },
+  "engines": {
+    "node": "0.10.x"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/plog17/ResAmWatcher"
+    "url": "https://github.com/heroku/node-js-getting-started"
   },
-  "author": "PL Auger",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/plog17/ResAmWatcher/issues"
-  },
-  "homepage": "https://github.com/plog17/ResAmWatcher"
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
