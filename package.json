@@ -1,0 +1,23 @@
+{
+  "name": "ResAmWatcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "request": "^2.53.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jasminde-node test/ --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/plog17/ResAmWatcher"
+  },
+  "author": "PL Auger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plog17/ResAmWatcher/issues"
+  },
+  "homepage": "https://github.com/plog17/ResAmWatcher"
+}
