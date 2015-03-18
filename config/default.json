@@ -1,0 +1,12 @@
+{
+  "Emailer": {
+    "email": "qwertyqwerty222222@gmail.com",
+    "password": "jai1macbook"
+  },
+  "Server": {
+    "port": "3000"
+  },
+  "Watcher": {
+    "waitTimeInSeconds": "5"
+  }
+}
