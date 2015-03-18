@@ -46,6 +46,7 @@ exports.watch = function(config) {
     ra.postAnastasia(body1FortClinch, function(answer) {
       var index = answer.indexOf("0 site(s)");
       if (index !== 0 && !emailSendFC1) {
+        console.log(index);
         emailer.sendMail(answer, "Disponibilités à FortClinch! 1er mai", config);
         emailSendFC1 = true;
       }
@@ -54,6 +55,7 @@ exports.watch = function(config) {
     ra.postFortClinch(body2FortClinch, function(answer) {
       var index = answer.indexOf("0 site(s)");
       if (index !== 0 && !emailSendFC2) {
+        console.log(index);
         emailer.sendMail(answer, "Disponibilités à FortClinch! 2 mai", config);
         emailSendFC2 = true;
       }
