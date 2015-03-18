@@ -16,8 +16,8 @@ app.get('/', function(request, response) {
   response.send('Hello World!');
 });
 
-app.listen(config.Server.port, function() {
-  console.log("Node app is running at localhost:" + config.Server.port);
+app.listen(port, function() {
+  console.log("Node app is running at localhost:" + port);
   watcher.watch(config);
 });
 
