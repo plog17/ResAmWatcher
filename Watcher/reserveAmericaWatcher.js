@@ -18,7 +18,7 @@ exports.watch = function(config) {
       if (index !== 0) {
         emailer.sendMail(answer, "Disponibilités à Anastasia! 1er mai", config);
       } else {
-        emailer.sendMail(answer, "Y'a rien à Anastasia le 1er mai", config);
+        //emailer.sendMail(answer, "Y'a rien à Anastasia le 1er mai", config);
       }
     });
 
@@ -27,7 +27,7 @@ exports.watch = function(config) {
       if (index !== 0) {
         emailer.sendMail(answer, "Disponibilités à Anastasia! 2 mai", config);
       } else {
-        emailer.sendMail(answer, "Y'a rien à Anastasia le 2 mai", config);
+        //emailer.sendMail(answer, "Y'a rien à Anastasia le 2 mai", config);
       }
     });
   }, millisecondsWait);
