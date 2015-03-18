@@ -1,7 +1,7 @@
 {
   "Emailer": {
     "email": "qwertyqwerty222222@gmail.com",
-    "password": "123456123456"
+    "password": "heroku123456"
   },
   "Server": {
     "port": "3000"
