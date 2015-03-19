@@ -16,6 +16,7 @@ exports.postAnastasia = function(body, callback) {
       console.log("POST OK");
       var $ = cheerio.load(body);
       var text = $('.matchSummary').text();
+      console.log(text);
       callback(text);
     } else {
       console.log("ERROR while posting data");
