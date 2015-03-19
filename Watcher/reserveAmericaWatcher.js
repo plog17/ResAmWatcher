@@ -29,7 +29,7 @@ exports.watch = function(config) {
 
     ra.postAnastasia(body1Anastasia, function(answer) {
       var index = answer.indexOf("0 site(s)");
-      if (index >= 0 && !emailSendA1) {
+      if (index !== 0 && !emailSendA1) {
         emailer.sendMail(answer, "Disponibilités à Anastasia! 1er mai", config);
         emailSendA1 = true;
       }
@@ -37,7 +37,7 @@ exports.watch = function(config) {
 
     ra.postAnastasia(body2Anastasia, function(answer) {
       var index = answer.indexOf("0 site(s)");
-      if (index >= 0 && !emailSendA2) {
+      if (index !== 0 && !emailSendA2) {
         emailer.sendMail(answer, "Disponibilités à Anastasia! 2 mai", config);
         emailSendA2 = true;
       }
@@ -46,7 +46,7 @@ exports.watch = function(config) {
     ra.postAnastasia(body1FortClinch, function(answer) {
       var index = answer.indexOf("0 site(s)");
       if (index < 0 && !emailSendFC1) {
-        console.log(index);
+        console.log(answer);
         emailer.sendMail(answer, "Disponibilités à FortClinch! 1er mai", config);
         emailSendFC1 = true;
       }
@@ -55,7 +55,7 @@ exports.watch = function(config) {
     ra.postFortClinch(body2FortClinch, function(answer) {
       var index = answer.indexOf("0 site(s)");
       if (index >= 0 && !emailSendFC2) {
-        console.log(index);
+        console.log(answer);
         emailer.sendMail(answer, "Disponibilités à FortClinch! 2 mai", config);
         emailSendFC2 = true;
       }
