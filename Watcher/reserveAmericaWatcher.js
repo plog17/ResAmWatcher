@@ -49,7 +49,7 @@ exports.watch = function(config) {
       }
     });
 
-    ra.postAnastasia(body1FortClinch, function(answer) {
+    ra.postFortClinch(body1FortClinch, function(answer) {
       var index = answer.indexOf("0 site(s)");
       console.log(answer);
       console.log(index);
