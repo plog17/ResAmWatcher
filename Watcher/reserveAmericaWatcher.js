@@ -6,6 +6,12 @@ var emailSendA2 = false;
 var emailSendFC1 = false;
 var emailSendFC2 = false;
 
+var statusA1, statusA2, statusFC1, statusFC2;
+
+exports.status = function() {
+  return statusA1 + "\n" + statusA2 + "\n" + statusFC1 + "\n" + statusFC2;
+};
+
 exports.watch = function(config) {
 
   var millisecondsWait = config.Watcher.waitTimeInSeconds * 1000;
@@ -45,6 +51,8 @@ exports.watch = function(config) {
 
     ra.postAnastasia(body1FortClinch, function(answer) {
       var index = answer.indexOf("0 site(s)");
+      console.log(answer);
+      console.log(index);
       if (index < 0 && !emailSendFC1) {
         console.log(answer);
         emailer.sendMail(answer, "Disponibilités à FortClinch! 1er mai", config);
@@ -54,6 +62,8 @@ exports.watch = function(config) {
 
     ra.postFortClinch(body2FortClinch, function(answer) {
       var index = answer.indexOf("0 site(s)");
+      console.log(answer);
+      console.log(index);
       if (index >= 0 && !emailSendFC2) {
         console.log(answer);
         emailer.sendMail(answer, "Disponibilités à FortClinch! 2 mai", config);
