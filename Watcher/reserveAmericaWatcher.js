@@ -22,7 +22,6 @@ exports.watch = function(config) {
   var body1FortClinch = "contractCode=FL&parkId=281027&siteTypeFilter=ALL&availStatus=&submitSiteForm=true&search=site&campingDate=Fri+May+01+2015&lengthOfStay=1&campingDateFlex=&currentMaximumWindow=12&contractDefaultMaxWindow=MS%3A24%2CLT%3A18%2CGA%3A24%2CSC%3A13&stateDefaultMaxWindow=MS%3A24%2CGA%3A24%2CSC%3A13&defaultMaximumWindow=12&loop=&siteCode=&lookingFor=&camping_2001_3013=&camping_2001_218=&camping_2002_3013=&camping_2002_218=&camping_2003_3012=&camping_3100_3012=&camping_10001_3012=&camping_10001_218=&camping_3101_3012=&camping_3101_218=&camping_9002_3012=&camping_9002_3013=&camping_9002_218=&camping_9001_3012=&camping_9001_218=&camping_3001_3013=&camping_2004_3013=&camping_2004_3012=&camping_3102_3012=";
   var body2FortClinch = "contractCode=FL&parkId=281027&siteTypeFilter=ALL&availStatus=&submitSiteForm=true&search=site&campingDate=Sat+May+02+2015&lengthOfStay=1&campingDateFlex=&currentMaximumWindow=12&contractDefaultMaxWindow=MS%3A24%2CLT%3A18%2CGA%3A24%2CSC%3A13&stateDefaultMaxWindow=MS%3A24%2CGA%3A24%2CSC%3A13&defaultMaximumWindow=12&loop=&siteCode=&lookingFor=&camping_2001_3013=&camping_2001_218=&camping_2002_3013=&camping_2002_218=&camping_2003_3012=&camping_3100_3012=&camping_10001_3012=&camping_10001_218=&camping_3101_3012=&camping_3101_218=&camping_9002_3012=&camping_9002_3013=&camping_9002_218=&camping_9001_3012=&camping_9001_218=&camping_3001_3013=&camping_2004_3013=&camping_2004_3012=&camping_3102_3012=";
 
-
   setInterval(function() {
     var emailSendA1 = false;
     var emailSendA2 = false;
@@ -50,10 +49,10 @@ exports.watch = function(config) {
     });
 
     ra.postFortClinch(body1FortClinch, function(answer) {
-      var index = answer.indexOf("0 site(s)");
-      console.log(answer);
-      console.log(index);
-      if (index < 0 && !emailSendFC1) {
+      var noSiteFound = (0 >= answer.indexOf("0 site(s)"));
+      var responseValid = (0 >= answer.indexOf("available"));
+
+      if (!noSiteFound && responseValid && !emailSendFC1) {
         console.log(answer);
         emailer.sendMail(answer, "Disponibilités à FortClinch! 1er mai", config);
         emailSendFC1 = true;
@@ -61,10 +60,10 @@ exports.watch = function(config) {
     });
 
     ra.postFortClinch(body2FortClinch, function(answer) {
-      var index = answer.indexOf("0 site(s)");
-      console.log(answer);
-      console.log(index);
-      if (index >= 0 && !emailSendFC2) {
+      var noSiteFound = (0 >= answer.indexOf("0 site(s)"));
+      var responseValid = (0 >= answer.indexOf("available"));
+
+      if (!noSiteFound && responseValid && !emailSendFC2) {
         console.log(answer);
         emailer.sendMail(answer, "Disponibilités à FortClinch! 2 mai", config);
         emailSendFC2 = true;

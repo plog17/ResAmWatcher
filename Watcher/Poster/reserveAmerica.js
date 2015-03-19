@@ -15,7 +15,7 @@ exports.postAnastasia = function(body, callback) {
     if (!error && response.statusCode == 200) {
       console.log("POST OK");
       var $ = cheerio.load(body);
-      var text = $('.matchSummary').text().toString();
+      var text = $('.matchSummary').text();
       callback(text);
     } else {
       console.log("ERROR while posting data");
@@ -41,7 +41,8 @@ exports.postFortClinch = function(body, callback) {
     if (!error && response.statusCode == 200) {
       console.log("POST OK");
       var $ = cheerio.load(body);
-      var text = $('.matchSummary').text().toString();
+      var text = $('.matchSummary').text();
+      console.log(text);
       callback(text);
     } else {
       console.log("ERROR while posting data");
